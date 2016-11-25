@@ -15,7 +15,7 @@
 #   COPYING-PLAIN
 #   COPYING
 #
-LICENSE = "CUSTOM"
+LICENSE = "MIT & BSD & LGPL-2.1"
 LIC_FILES_CHKSUM = "file://COPYING-PLAIN;md5=f59cacc08235a546b0c34a5422133035 \
                     file://COPYING;md5=d70bc65d46237e4ef386beebe7d0fe5b"
 
