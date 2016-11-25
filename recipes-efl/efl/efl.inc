@@ -58,6 +58,7 @@ EXTRA_OECONF_append_class-native = " \
 "
 # eglfs -> sucking freescale virvante driver
 # eglfs need hwcomposer.h ?
+# --enable-gl-drm >> requores egl opengl-es, but vivante-sh*** elg-interface depends on xlib
 PACKAGECONFIG ?= " fb  gstreamer1 pulseaudio luajit ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'wayland', '', d)} ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'systemd', '', d)}"
 PACKAGECONFIG_class-native = "luajit"
 
@@ -67,7 +68,7 @@ PACKAGECONFIG[physics] = "--enable-physics,--disable-physics,bullet"
 # gs is broken!? so we can't configure poppler :(
 PACKAGECONFIG[poppler] = "--enable-poppler,--disable-poppler"
 PACKAGECONFIG[libraw] = "--enable-libraw,--disable-libraw,libraw"
-PACKAGECONFIG[wayland] = "--enable-wayland --enable-wayland-ivi-shell,--disable-wayland --disable-wayland-ivi-shell,wayland"
+PACKAGECONFIG[wayland] = "--enable-wayland --enable-wayland-ivi-shell --enable-drm --enable-systemd --enable-elput,--disable-wayland --disable-wayland-ivi-shell,wayland"
 PACKAGECONFIG[egl] = "--enable-egl,--disable-egl,virtual/egl"
 # sort of tri-state
 PACKAGECONFIG[opengl-full] = "--with-opengl=full,,virtual/libgl"
