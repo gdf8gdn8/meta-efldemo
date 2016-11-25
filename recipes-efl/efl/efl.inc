@@ -3,8 +3,8 @@ LICENSE = "MIT & BSD & LGPL-2.1"
 LIC_FILES_CHKSUM = "file://COPYING;md5=7289b9073819c9ee98b6f688df9717e8"
 
 DEPENDS_class-native = "freetype-native libxext-native libpng-native jpeg-native tiff-native libfribidi-native glib-2.0-native dbus-native openssl-native librsvg-native"
-DEPENDS = "virtual/libiconv tslib curl glib-2.0 gnutls pkgconfig zlib jpeg openssl libsndfile1 cairo dbus libexif librsvg freetype libpng tiff libxext virtual/libx11 libxdamage libxrender fontconfig libfribidi giflib udev libxcursor libxcomposite libxinerama libxrandr libxtst libxscrnsaver efl-native util-linux libunwind efl-native"
-
+DEPENDS = "udev libxkbcommon libinput virtual/libiconv tslib curl glib-2.0 gnutls pkgconfig zlib jpeg openssl libsndfile1 cairo dbus libexif librsvg freetype libpng tiff   fontconfig libfribidi giflib udev  efl-native util-linux libunwind efl-native"
+# 
 inherit efl gettext pkgconfig
 
 BBCLASSEXTEND = "native"
@@ -58,7 +58,7 @@ EXTRA_OECONF_append_class-native = " \
 "
 # eglfs -> sucking freescale virvante driver
 # eglfs need hwcomposer.h ?
-PACKAGECONFIG ?= "egl opengl-es fb  gstreamer1 pulseaudio luajit ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'wayland', '', d)} ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'systemd', '', d)}"
+PACKAGECONFIG ?= " fb  gstreamer1 pulseaudio luajit ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'wayland', '', d)} ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'x11', '', d)} ${@bb.utils.contains('DISTRO_FEATURES', 'systemd', 'systemd', '', d)}"
 PACKAGECONFIG_class-native = "luajit"
 
 # gs is broken!? so we can't configure spectre :(
@@ -83,9 +83,14 @@ PACKAGECONFIG[systemd] = "--enable-systemd,--disable-systemd,systemd"
 PACKAGECONFIG[luajit] = "--disable-lua-old,--enable-lua-old,luajit"
 PACKAGECONFIG[lua-old] = "--enable-lua-old,--disable-lua-old,lua"
 PACKAGECONFIG[avahi] = "--enable-avahi,--disable-avahi,avahi"
+
+# needs android sdk
 PACKAGECONFIG[eglfs] = "--enable-eglfs --with-opengl=es,--disable-eglfs,virtual/libgles2"
+
+
 PACKAGECONFIG[fb] = "--enable-fb,--disable-fb,tslib"
 
+PACKAGECONFIG[x11] = ",--with-x11=none,virtual/libx11 libxext libxdamage libxrender libxcursor libxcomposite libxinerama libxrandr libxtst libxscrnsaver"
 # currently we don't provide doxygen-native
 PACKAGECONFIG[doc] = "--enable-doc,--disable-doc,doxygen-native"
 
