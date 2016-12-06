@@ -68,7 +68,7 @@ PACKAGECONFIG[physics] = "--enable-physics,--disable-physics,bullet"
 # gs is broken!? so we can't configure poppler :(
 PACKAGECONFIG[poppler] = "--enable-poppler,--disable-poppler"
 PACKAGECONFIG[libraw] = "--enable-libraw,--disable-libraw,libraw"
-PACKAGECONFIG[wayland] = "--enable-wayland --enable-wayland-ivi-shell --enable-drm --enable-systemd --enable-elput,--disable-wayland --disable-wayland-ivi-shell,wayland"
+PACKAGECONFIG[wayland] = "--enable-wayland --enable-wayland-ivi-shell --enable-drm --enable-systemd --enable-elput,--disable-wayland --disable-wayland-ivi-shell,wayland libdrm mesa"
 PACKAGECONFIG[egl] = "--enable-egl,--disable-egl,virtual/egl"
 # sort of tri-state
 PACKAGECONFIG[opengl-full] = "--with-opengl=full,,virtual/libgl"
