@@ -11,6 +11,8 @@ BBCLASSEXTEND = "native"
 
 PROVIDES += "ecore edje eet eeze efreet eina eio embryo emotion ethumb evas eldbus"
 
+CFLAGS_append = " -fPIC 
+
 # we don't have bullet for physics
 # You have chosen to disable physics support. This disables lots of
 # core functionality and is effectively never tested. You are going
