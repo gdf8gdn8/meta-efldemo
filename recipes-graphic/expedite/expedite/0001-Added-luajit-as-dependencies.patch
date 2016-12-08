@@ -1,0 +1,24 @@
+From 071f3cc233d771b2da0aae0c7e90f568f44a2910 Mon Sep 17 00:00:00 2001
+From: Uwe Strempel <uwe.strempel@mcc-med.de>
+Date: Thu, 8 Dec 2016 08:55:27 +0100
+Subject: [PATCH] Added luajit as dependencies
+
+---
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure.ac b/configure.ac
+index 8e59499..b095708 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -50,7 +50,7 @@ esac
+
+ # EFL dependencies
+
+-PKG_CHECK_MODULES([EFL], eina >= 1.7.99 efl >= 1.13.0 eo >= 1.7.99 evas >= 1.7.99 eet >= 1.7.99 ecore-evas >= 1.7.99 ecore >= 1.7.99)
++PKG_CHECK_MODULES([EFL], eina >= 1.7.99 efl >= 1.13.0 eo >= 1.7.99 evas >= 1.7.99 eet >= 1.7.99 ecore-evas >= 1.7.99 ecore >= 1.7.99 luajit >= 2.0.0)
+
+ EFL_ENABLE_EO_API_SUPPORT
+ EFL_ENABLE_BETA_API_SUPPORT
+--
+2.9.0
