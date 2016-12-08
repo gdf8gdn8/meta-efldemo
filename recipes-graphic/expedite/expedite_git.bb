@@ -29,7 +29,9 @@ S = "${WORKDIR}/git"
 
 # NOTE: unable to map the following pkg-config dependencies: evil
 #       (this is based on recipes that have previously been built and packaged)
-DEPENDS = "efl"
+DEPENDS = "efl luajit"
+ 
+CFLAGS_append = " -fPIC "
 
 # NOTE: if this software is not capable of being built in a separate build directory
 # from the source, you should replace autotools with autotools-brokensep in the
