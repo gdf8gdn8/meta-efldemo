@@ -4,7 +4,7 @@ SRC_URI = "\
     ${E_RELEASES}/libs/${SRCNAME}/${SRCNAME}-${SRCVER}.tar.gz \
 "
 
-SRC_URI[sha256sum] = "05a71b44b1dbcea2492410ca57afe119bcbacb7e89a1984b9eb2422a8803a12a"
+SRC_URI[sha256sum] = "d19669eece770cc09733568c7dfef9870daa0f8b9f613ab76ad14b2f5de20040"
 
 # Temporary disable until error like the one following are fixed
 # efl-native/2_1.8.4-r0/efl-1.8.4/src/lib/eet/.libs/libeet.so: file not recognized: File truncated
@@ -23,6 +23,6 @@ B = "${S}"
 
 #ld: error: modules/evas/image_loaders/png/bin_evas_evas_cserve2_slave-evas_image_load_png.o: requires unsupported dynamic reloc R_ARM_MOVW_ABS_NC; recompile with -fPIC
 #ld: error: modules/evas/image_loaders/png/bin_evas_evas_cserve2_slave-evas_image_load_png.o: requires unsupported dynamic reloc R_ARM_MOVW_ABS_NC; recompile with -fPIC
-CFLAGS += "-fPIC"
+CFLAGS += "-fPIC -O2 -ffast-math -ftree-vectorize"
 
 PROVIDES += "efl"
